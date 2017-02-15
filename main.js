@@ -1,19 +1,23 @@
 
 //Create a `tree` function that should build a pine tree out of a character in the Chrome dev tools console. 
-var treeChar = document.getElementById("treeChar").value;
-var treeHeight = document.getElementById("treeHeight").value;
+var treeChar = document.getElementById("treeChar");
+var treeHeight = document.getElementById("treeHeight");
 
 function startTree() {
-	if (treeChar === ""){
-		alert("Please choose a number of rows!")
+	var charInput = document.getElementById("treeChar").value;
+	var heightInput = document.getElementById("treeHeight").value;
+	if(charInput == "" || charInput.length == 0 || charInput == null) {
+	alert("Please choose a character to build your tree");
 	}
-	else if (treeHeight === "") {
-		alert("Please choose a character to build your tree!")
-	}
+	else if(heightInput == "" || heightInput.length == 0 || heightInput == null) {
+		alert("Please choose a number of rows for the height of your tree");
+		}
+	else {	
 	var treeObject = { height: treeHeight.value*1,
 					   character: treeChar.value
 					 };
 	growYourTree(treeObject);
+	}
 }
 
 var growYourTree = function(treeBuilders) {
@@ -23,7 +27,6 @@ var growYourTree = function(treeBuilders) {
 	var treeSpace = treeBuilders.height - (i + 1);
 	console.log(" ".repeat(treeSpace) + treeBuilders.character.repeat(treeChars));
 	}
-	
 console.log(treeString);
 }
 
